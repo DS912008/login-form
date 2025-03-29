@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    height: 100vh; 
+    background-image: url('https://pics.craiyon.com/2023-06-20/7f9a15a54868484cb758093340ddb0e1.webp'); 
+    color:white;
+   background-size:cover;
+   background-position:center;
+}
+ .form{
+ background-color:purple;
+ padding:20px;
+ border-radius:10px;
+ box-shadow: 2px 0 10px blue;
+ color:#fff;
+ background:transparent;
+ backdrop-filter:blur(5px);
+ box-shadow:0px 0px 10px 10px 10px ;
+ }
+ .input_box input{
+    border-radius:50px;
+    background:transparent;
+   color:white;
+   width:300px;
+   height:40px;
+ }
+ h3{
+    text-align:center;
+    margin:20px;
+    padding:10px;
+    font-size:30px;
+    text-shadow: 2px 0 10px blue;
+ }
+.remember{
+    text-align:center;
+    margin:2px;
+}
+.remember :hover{
+    color:red;
+}
+
+.login button {
+    border-radius:50px;
+    background:white;
+ 
+   width:300px;
+   height:40px;
+}
+.login  :hover{
+    background-color:red;
+}
+
+.input_box input::placeholder{
+    color:white;
+    font-style:bold;
+
+}
+header{
+    display:flex;
+    position:fixed;
+    padding:30px ;
+    background:transparent;
+    backdrop-filter:blur(20px);
+    justify-content:space-between;
+    width:95%;
+   align-items:center;
+   }
+   
+   .website a{
+    color:white;
+    justify-content:space-between;
+    animation: a 5s linear  infinite alternate;
+   }
+   h4{
+    color:white;
+    font-size:40px;
+    animation: a 5s linear  infinite alternate;
+   }
+   @keyframes a {
+    0%   {color:red; left:0px; top:0px;}
+    25%  {color:yellow; left:200px; top:0px;}
+    50%  {color:blue; left:200px; top:200px;}
+    75%  {color:green; left:0px; top:200px;}
+    100% {color:red; left:0px; top:0px;}
+  }
+  @media (max-width: 600px) {
+    .form {
+      width: 90%;
+      padding: 15px;
+    }
+    .input_box input, .login button {
+      width: 100%;
+    }
+  }

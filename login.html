@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+</head>
+<link rel="stylesheet" href="login.css">
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+<body>
+    <header>
+       
+        <nav class="website">
+         
+        
+  
+        </nav>
+    </header>
+    <div class="form">
+
+<form action="">
+    <h3>LOGIN</h3>
+    <div class="input_box">
+        <input type="text" placeholder="     Username" required>
+        <i class='bx bxs-user' ></i>
+    </div><br>
+    <div class="input_box">
+        <input type="password" placeholder="     Password" required>
+        <i class='bx bxs-lock-alt' ></i>
+    </div><br>
+    <div class="remember">
+      <label> <input type="checkbox" >remember me </label>
+      <a href="#">Forgot password?</a>
+    </div>
+    <div class="login"><button >LOGIN</button></div>
+    
+</form>
+    </div>
+    <script>
+        document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const username = document.querySelector("input[type='text']").value;
+  const password = document.querySelector("input[type='password']").value;
+
+  if (username && password) {
+    alert(`Welcome, ${username}!`);
+  } else {
+    alert("Please fill out both fields!");
+  }
+});
+
+    </script>
+</body>
+</html>
