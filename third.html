@@ -1,97 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        .body1{
-            
-            
-            color:white;
-
-            display:flex;
-            margin-left:27%;
-            justify-content:center;
-            align-items:center;
-            text-align:center;
-            height:100vh;
-            width:100vh;
-           
-        }
-
-       
-
-        h2{
-            font-size:50px;
-            font-style:bold;
-        } h3{
-            color:black;
-            text-align:center;
-         
-            font-style:bold;
-        }
-
-        form{
-            border-radius: 50px;
-            height:300px;
-            width:400px;
-            align-items:center ;
-           
-            padding:20px 30px;
-             background: linear-gradient(to right, black, darkblue);
-        }
-
-        form input{
-            background-color: transparent;
-            border-radius: 20px;
-            padding:5px 10px;
-            text-align: center;
-        }
-
-        form button{
-            border-radius: 10px;
-            padding:10px 15px;
-            font-style: bold;
-            text-align: center;
-        }
-        form button:hover{
-             background: linear-gradient(to right, darkblue, black);
-            color: white;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register & Login</title>
+  <style>
+    .body1 {
+      color: white;
+      display: flex;
+      margin-left: 27%;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      height: 100vh;
+      width: 100vh;
+    }
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    form {
+      border-radius: 20px;
+      height: 450px;
+      width: 400px;
+      align-items: center;
+      padding: 20px 30px;
+      background: linear-gradient(to right, black, darkblue);
+    }
+    form input {
+      background-color: transparent;
+      border-radius: 10px;
+      padding: 5px 10px;
+      text-align: center;
+      color: white;
+      border: 1px solid white;
+    }
+    form button {
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+    }
+    form button:hover {
+      background: linear-gradient(to right, darkblue, black);
+      color: white;
+    }
+  </style>
 </head>
 <body>
-    <div class="body1">
-        <form>
-            <h2>Login Form</h2>
-            <input type="text" id="username" placeholder="enter username"><br><br>
-            <input type="password" id="password" placeholder="enter password"><br><br>
-            <button onclick="login()"><strong>Login</strong></button>
+  <div class="body1">
+    <form onsubmit="return false;">
+      <h2>Register</h2>
+      <input type="text" id="newUsername" placeholder="create username"><br><br>
+      <input type="password" id="newPassword" placeholder="create password"><br><br>
+      <button onclick="register()">Register</button><br><br>
 
-            <script>
-                let user = {
-                    username: 'dhanu',
-                    password: '12345'
-                };
+      <hr style="margin:20px 0;">
 
-                localStorage.setItem("userData", JSON.stringify(user));
+      <h2>Login Form</h2>
+      <input type="text" id="username" placeholder="enter username"><br><br>
+      <input type="password" id="password" placeholder="enter password"><br><br>
+      <button onclick="login()">Login</button>
+    </form>
+  </div>
 
-                function login() {
-                    let storedData = JSON.parse(localStorage.getItem("userData"));
-                    let inputUsername = document.getElementById("username").value;
-                    let inputPassword = document.getElementById("password").value;
+  <script>
+    function register() {
+      let newUsername = document.getElementById("newUsername").value;
+      let newPassword = document.getElementById("newPassword").value;
 
-                    if (inputUsername === storedData.username && inputPassword === storedData.password) {
-                        alert("very good!");
-                    } else {
-                        alert("incorrect");
-                    }
-                }
-            </script>
-        </form>
-    </div>
-   <h3>Username=dhanu , password=12345<br>
-try to check </h3>
+      if (!newUsername || !newPassword) {
+        alert("Please enter both username and password");
+        return;
+      }
+
+      let newUser = {
+        username: newUsername,
+        password: newPassword
+      };
+
+      localStorage.setItem("userData", JSON.stringify(newUser));
+      alert("Registration successful!");
+    }
+
+    function login() {
+      let storedData = JSON.parse(localStorage.getItem("userData"));
+      let inputUsername = document.getElementById("username").value;
+      let inputPassword = document.getElementById("password").value;
+
+      if (!storedData) {
+        alert("No user found. Please register first.");
+        return;
+      }
+
+      if (inputUsername === storedData.username && inputPassword === storedData.password) {
+        alert("Successfully logged in!");
+      } else {
+        alert("Invalid username or password.");
+      }
+    }
+  </script>
 </body>
 </html>
